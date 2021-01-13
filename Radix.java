@@ -14,4 +14,10 @@ public class Radix {
     return size;
   }
 
+  public static void merge(MyLinkedList original, MyLinkedList[] buckets) {
+    for (int i = 0; i <= 10; i++) {
+      original.extend(buckets[i]);
+    }
+  }
+
 }
