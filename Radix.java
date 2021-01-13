@@ -1,20 +1,14 @@
 public class Radix {
 
   public static int nth(int n, int col) {
-    String number = "" + n;
-    if (col >= number.length()) {
-      return 0;
-    }
-    return Integer.parseInt(number.substring(number.length()-col-1, number.length()-col));
+    return (int) (n/(Math.pow(10,col)) % 10);
   }
 
   public static int length(int n) {
-    String number = "" + n;
-    int size = number.length();
-    if (number.charAt(0) == '-') {
-      size -= 1;
+    if (n == 0) {
+      return 1;
     }
-    return size;
+    return (int) (Math.log10(n) + 1);
   }
 
   public static void merge(SortableLinkedList original, SortableLinkedList[] buckets) {
@@ -45,7 +39,25 @@ public class Radix {
   }
 
   public static void radixSort(SortableLinkedList data) {
-    
+    // SortableLinkedList negatives = new SortableLinkedList();
+    // int size = data.size();
+    // for (int i = 0; i < size; i++) {
+    //   int num = data.remove(0);
+    //   if (num < 0) {
+    //     negatives.add(Math.abs(num));
+    //   } else {
+    //     data.add(num);
+    //   }
+    // }
+    // radixSortSimple(data);
+    // radixSortSimple(negatives);
+    // int size1 = negatives.size();
+    // for (int j = 0; j < size1; j++) {
+    //   int num = negatives.remove(0);
+    //   negatives.add(0-num);
+    // }
+    // negatives.extend(data);
+    // data.extend(negatives);
   }
 
 }
